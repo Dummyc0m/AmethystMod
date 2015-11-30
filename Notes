@@ -1,0 +1,165 @@
+Amethyst
+
+World:
+AmethystOre
+Aluminum
+Copper
+Zinc
+
+
+Crafting:
+circuit board printer
+inscriber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Portal to warped world
+    Random generation
+    limited and continuous world
+
+
+
+Thermal Energy
+Temperature Increment
+Temperature Decrement
+
+Electric Energy
+
+Radiant Energy
+
+Mechanical Energy
+Kinetic Energy
+Potential Energy
+Gravitational Potential Energy
+Elastic Potential Energy
+Electric Potential Energy
+
+Chemical Energy
+
+Nuclear Energy
+
+*Internal Energy
+
+*Molecular force
+
+Annihilation
+
+
+
+
+Initial Mana Max. = 40-60
+
+Spell Stages: Pre-initiation, Initiation, prefix, Casting, suffix
+
+Pre-initiation:
+Preemption Caster (significantly decreases total spell time) (significantly decreases power) (significantly increases energy usage)
+Force Caster (significantly increases total spell time) (significantly increases power) (significantly increases mana usage)
+Amateur Caster (increases total spell time) (decreases mana/energy usage)
+Intermediate Caster (does nothing)
+
+Initiation:
+Instantaneous Spell (short period of time) (short initiation time)
+Lasting Spell (does not change over time, unless stopped) (long initiation time)
+Miscellaneous Spell (anything) (Hidden) (unknown)
+Ancient Spell (anything) (Hidden) (unknown)
+
+Prefix:
+Augmentation prefix (amplifies the power/visibility of the spell) (increases energy and mana usage) (increases casting time)
+Scope prefix (increases the range of the spell) (significantly increases energy and mana usage) (increases casting time)
+Reduction prefix (diminishes the power/visibility of the spell) (decreases energy and mana usage) (decreases casting time)
+Precision prefix (improved accuracy) (slightly increases energy and mana usage) (increases casting time)
+Mundane prefix (slightly decreases accuracy or power of the spell) (decreases mana usage)
+
+Suffix:
+Frugal suffix (decreases energy usage) (increases casting time)
+Celerity suffix (increases mana usage) (decreases casting time)
+Instability suffix (slightly decreases energy or mana usage or accuracy) (slightly increases/decreases casting time) (unstable)
+Stealth suffix (decreases the visibility of the spell) (increases casting time)
+Mundane suffix (slightly decreases accuracy or power of the spell) (decreases mana usage)
+
+
+ACEntity
+
+Gives calls update depending on scheduling
+
+
+Spell:
+Ray Spell
+Range Spell
+Projectile Spell
+RemoteOutline Spell
+
+potential
+
+visibility
+
+accuracy
+
+target SpellTargetSelector
+
+manaUsage
+
+cacheCooldown
+
+cacheEnergyUsage
+
+timeAlive
+
+location vector pitch yaw etc
+
+
+SpellProjectile(int energyLevel)
+
+SpellTargetSelector
+SingleTargetSelector
+RangeTargetSelector
+seekNewTargets()
