@@ -19,13 +19,19 @@ public class ItemBase extends Item {
     private String[] subNames;
 
     public ItemBase(String name, int stackSize, String... subNames) {
-        this.setUnlocalizedName(AmethystMod.MODID + "." + name);
-        this.setCreativeTab(AmethystMod.creativeTab);
-        this.setHasSubtypes(subNames != null && subNames.length > 0);
         this.setMaxStackSize(stackSize);
         itemName = name;
-        this.subNames = subNames != null ? subNames.length > 0 ? subNames : null : null;
-        GameRegistry.registerItem(this, name);
+        this.setCreativeTab(AmethystMod.creativeTab);
+        if(subNames != null && subNames.length > 0) {
+            this.setUnlocalizedName(AmethystMod.MODID + "." + name);
+            this.setHasSubtypes(true);
+            this.subNames = subNames;
+            GameRegistry.registerItem(this, subNames[0]);
+        } else {
+            this.setUnlocalizedName(AmethystMod.MODID + "." + name);
+            this.setHasSubtypes(subNames != null && subNames.length > 0);
+            GameRegistry.registerItem(this, name);
+        }
     }
 
     @Override

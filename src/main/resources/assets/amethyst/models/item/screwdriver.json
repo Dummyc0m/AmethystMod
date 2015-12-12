@@ -1,0 +1,6 @@
+{
+  "parent": "amethyst:item/handheld",
+  "textures": {
+    "layer0": "amethyst:items/screwdriver"
+  }
+}

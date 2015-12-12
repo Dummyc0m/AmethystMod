@@ -1,28 +1,116 @@
 Amethyst
 
 World:
-AmethystOre
-Aluminum
-Copper
-Zinc
+AmethystOre - Amethyst
+Aluminum - Bauxite - cans, utencils, good conductor, transmission lines, 
+Copper - chalcopyrite, Chalcocite, Bornite, covellite, tetrahedrite, enargite - wiring and motor, machinery and construction, 
+Zinc - sphalerite - galvanize, brass, nickel silver and aluminium solder.
+Silver - argentite (Ag2S), chlorargyrite ("horn silver," AgCl), and galena - solder electrical contacts and batteries, printed circuits
+Silicon from quartz(silica)
+Tin - coat metal to prevent corrosion
+Lead - car batteries, pigments, ammunition, cable sheathing, radiation protection
+Lithium - from brine - rechargable batteries, A magnesium-lithium alloy is used for armour plating. Aluminium-lithium alloys are used in aircraft, bicycle frames and high-speed trains.
+nickel - steel alloy - resist corrosion, stainless steel, boat propeller shafts and turbine blades., nickel-cadmium batteries and nickel-metal hydride batteries
+sulphur - from gas and oil - gunpowder, sulfuric acid
 
+Iron - steel, pipes valves and pumps
+Stainless steel is very resistant to corrosion. It contains at least 10.5% chromium. Other metals such as nickel, molybdenum, titanium and copper are added to enhance its strength and workability. It is used in architecture, bearings, cutlery, surgical instruments and jewellery.
+Gold - electroplate electric component, circuits, coat copper components, 
+
+Metallurgical grade
++ anhydrous HCl in fluidized bed reactor -> distillation used to purify from other halides
++hydrogen at 1100 celsius for 200-300 hrs => very pure silicon
+
+
+Copper + zinc = brass => locks gears ammunition casing valves.
+
+Magical processors
 
 Crafting:
-circuit board printer
-inscriber
+Etching plate
+ferric chloride
+
+transfer paper
+assembly table
++ drill = drill press
+Drills
+capacitor, resistor, diode, transistor, 
+soldering iron
+
+Steelmaking:
+
+blast furnace => iron ore, coke(also pet coke), and limestone. Charcoal and anthracite to produce pig iron
+
+Refractory lined container, ladle
+magnesium added, exothermic to reduct sulfur inpurities
+de-silicon and phosphorous with iron oxide(mill scale) and lime
+
+filling the furnace => charging 1/5 steel scrap,  4% C, 0.2–0.8% Si, 0.08%–0.18% P, and 0.01–0.04% S
+
+water cooled lance blowes oxygen, igniting carbon impurities and raise temperature to 1700 cel -> melts scrap
+Fluxes (burnt lime or dolomite) are fed into the vessel to form slag, absorb impurities
+typical =  0.3–0.6% C, 0.05–0.1% Mn, 0.01–0.03% Si, 0.01–0.03% S and P.
+
+poured in to ladle and alloy
+
+Basic Oxygen Furnace 
+manganese, nickel, chromium and vanadium are added to produce steel
+
+electric arc furnace
+
+
+7yh6
+method to purify aluminum
+Bayer process https://en.wikipedia.org/wiki/Bayer_process
+wash bauxite with NaOH at 175 cel under pressure, convert aluminum oxide to sodium aluminate produce water as well
+rotary sand trap to filter out red mud with flocculant
+water + seed with AlOH3 to produce AlOH3 crystal and NaOH
+heat to 980 cel, decompose to aluminum oxide and water
+
+https://en.wikipedia.org/wiki/Hall–Héroult_process
+to smelt aluminum
+dissolve in molten cryolite, Na3AlF6 lower melting point and improve conductivity
+
+cryolite, alumina and aluminium fluoride is electrolyzed by passing low voltage (3-5V) direct current through it.
+
+deposited at the cathode while the oxygen from the alumina combines with carbon from the anode to produce carbon dioxide
+
+rolling machine
 
 
 
 
 
 
+Natural Gas
+https://en.wikipedia.org/wiki/Natural-gas_processing#Contaminants_in_raw_natural_gas
+
+Petroleum Refinery
+Liquified petroleum gas (LPG)
+Gasoline (also known as petrol)
+Naphtha
+Kerosene and related jet aircraft fuels
+Diesel fuel
+Fuel oils
+Lubricating oils
+Paraffin wax
+Asphalt and tar
+Petroleum coke
+
+Plastic from petroleum
+hydrocarbon gas liquid
+natural gas
+
+ ethane, propane, normal butane, isobutane, and natural gasoline, and their associated olefins, including ethylene, propylene, butylene, and isobutylene
 
 
 
+http://www.eia.gov/dnav/pet/PET_PNP_PCT_DC_NUS_PCT_A.htm
+Refinery Yield
+https://en.wikipedia.org/wiki/Oil_refinery
 
 
-
-
+Refinery Sour water http://www2.emersonprocess.com/siteadmincenter/PM%20Rosemount%20Analytical%20Documents/Liq_ADS_2900-10.pdf
 
 
 
