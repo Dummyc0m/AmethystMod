@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class ItemTool extends ItemBase {
     public ItemTool() {
-        super("tool", 1, "screwdriver");
+        super("screwdriver", 1);
     }
 
     @Override

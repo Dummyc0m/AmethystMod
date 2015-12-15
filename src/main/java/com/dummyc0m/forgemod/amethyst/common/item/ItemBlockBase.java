@@ -1,6 +1,8 @@
 package com.dummyc0m.forgemod.amethyst.common.item;
 
 import com.dummyc0m.forgemod.amethyst.AmethystMod;
+import com.dummyc0m.forgemod.amethyst.api.IBlockBase;
+import com.dummyc0m.forgemod.amethyst.api.IToolTip;
 import com.dummyc0m.forgemod.amethyst.client.util.LanguageUtil;
 import com.dummyc0m.forgemod.amethyst.common.block.BlockBase;
 import net.minecraft.block.Block;
@@ -18,10 +20,10 @@ import java.util.List;
 /**
  * Created by Dummyc0m on 12/3/15.
  */
-public class ItemBlockBase extends ItemBlock {
+public class ItemBlockBase extends ItemBlock implements IToolTip {
     public ItemBlockBase(Block block) {
         super(block);
-        if(((BlockBase)block).getSubNames() != null && ((BlockBase)block).getSubNames().length > 1) {
+        if(((IBlockBase) block).getSubNames() != null && ((IBlockBase) block).getSubNames().length > 1) {
             setHasSubtypes(true);
         }
     }
@@ -44,7 +46,7 @@ public class ItemBlockBase extends ItemBlock {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        if (((BlockBase)block).getSubNames() != null) {
+        if (((IBlockBase)block).getSubNames() != null) {
             String subName = itemStack.getItemDamage() < ((BlockBase)block).getSubNames().length ? ((BlockBase)block).getSubNames()[itemStack.getItemDamage()] : ((BlockBase)block).getSubNames()[((BlockBase)block).getSubNames().length - 1];
             return this.getUnlocalizedName() + "." + subName;
         }
@@ -52,9 +54,10 @@ public class ItemBlockBase extends ItemBlock {
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     @SuppressWarnings("unchecked")
     public void formatTooltip(ItemStack stack, List tooltip) {
-        if(((BlockBase)block).isTooltip()) {
+        if(((IBlockBase)block).isTooltip()) {
             if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
                 LanguageUtil.formatTooltip(stack.getUnlocalizedName() + ".tooltip.hidden", tooltip);
             } else {

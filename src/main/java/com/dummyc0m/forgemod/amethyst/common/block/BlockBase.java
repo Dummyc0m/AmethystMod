@@ -1,6 +1,8 @@
 package com.dummyc0m.forgemod.amethyst.common.block;
 
 import com.dummyc0m.forgemod.amethyst.AmethystMod;
+import com.dummyc0m.forgemod.amethyst.api.IBlockBase;
+import com.dummyc0m.forgemod.amethyst.api.IScrewdriverHarvestable;
 import com.dummyc0m.forgemod.amethyst.common.AMContent;
 import com.dummyc0m.forgemod.amethyst.common.item.ItemBlockBase;
 import com.dummyc0m.forgemod.amethyst.common.util.ToolUtil;
@@ -20,7 +22,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 /**
  * Created by Dummyc0m on 11/28/15.
  */
-public abstract class BlockBase extends BlockContainer {
+public abstract class BlockBase extends BlockContainer implements IBlockBase, IScrewdriverHarvestable {
     private String blockName;
     private String[] subNames;
     private boolean flammability;
@@ -31,7 +33,7 @@ public abstract class BlockBase extends BlockContainer {
         this.setUnlocalizedName(AmethystMod.MODID + "." + name);
         this.setCreativeTab(AmethystMod.creativeTab);
         blockName = name;
-        this.subNames = subNames;
+        this.subNames = subNames != null && subNames.length > 0 ? subNames : null;
         GameRegistry.registerBlock(this, itemBlock, name);
     }
 
@@ -40,14 +42,7 @@ public abstract class BlockBase extends BlockContainer {
         return true;
     }
 
-    public boolean isTooltip() {
-        return tooltip;
-    }
-
-    public void setTooltip(boolean tooltip) {
-        this.tooltip = tooltip;
-    }
-
+    @Override
     public void setFlammable(boolean flammability) {
         this.flammability = flammability;
     }
@@ -67,6 +62,7 @@ public abstract class BlockBase extends BlockContainer {
         return flammability ? 5 : 0;
     }
 
+    @Override
     public boolean canScrewdriverHarvest() {
         return true;
     }
@@ -86,11 +82,23 @@ public abstract class BlockBase extends BlockContainer {
         return super.collisionRayTrace(worldIn, pos, start, end);
     }
 
+    @Override
     public String getBlockName() {
         return blockName;
     }
 
+    @Override
     public String[] getSubNames() {
         return subNames;
+    }
+
+    @Override
+    public boolean isTooltip() {
+        return tooltip;
+    }
+
+    @Override
+    public void setTooltip(boolean showToolTip) {
+        tooltip = showToolTip;
     }
 }

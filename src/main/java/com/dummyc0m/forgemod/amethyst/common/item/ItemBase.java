@@ -1,6 +1,7 @@
 package com.dummyc0m.forgemod.amethyst.common.item;
 
 import com.dummyc0m.forgemod.amethyst.AmethystMod;
+import com.dummyc0m.forgemod.amethyst.api.IItemBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by Dummyc0m on 11/28/15.
  * General amethyst item format, absorbed from other tutorials and mods.
  */
-public class ItemBase extends Item {
+public class ItemBase extends Item implements IItemBase {
     private String itemName;
     private String[] subNames;
 
@@ -56,10 +57,12 @@ public class ItemBase extends Item {
         }
     }
 
+    @Override
     public String[] getSubNames() {
         return subNames;
     }
 
+    @Override
     public String getItemName() {
         return itemName;
     }
