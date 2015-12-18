@@ -15,11 +15,8 @@ import java.util.List;
  * Item base with tooltips
  */
 public class ItemTooltipBase extends ItemBase {
-    public boolean alwaysShow;
-
-    public ItemTooltipBase(String name, int stackSize, boolean alwaysShow, String... subNames) {
+    public ItemTooltipBase(String name, int stackSize, String... subNames) {
         super(name, stackSize, subNames);
-        this.alwaysShow = alwaysShow;
     }
 
     @Override
@@ -31,14 +28,11 @@ public class ItemTooltipBase extends ItemBase {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("unchecked")
     public void formatTooltip(ItemStack stack, List tooltip) {
-        if (alwaysShow || Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
-            LanguageUtil.formatTooltip(stack.getUnlocalizedName() + ".tooltip", tooltip);
+        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
+            LanguageUtil.formatTooltip(stack.getUnlocalizedName() + ".tooltip.hidden", tooltip);
         } else {
-            tooltip.add(LanguageUtil.getLocalization(AmethystMod.MODID + ".lang.showTooltip"));
+            LanguageUtil.formatTooltip(stack.getUnlocalizedName() + ".tooltip", tooltip);
+            tooltip.add(LanguageUtil.getLocalization("lang." + AmethystMod.MODID + ".showTooltip"));
         }
-    }
-
-    public boolean isAlwaysShow() {
-        return alwaysShow;
     }
 }

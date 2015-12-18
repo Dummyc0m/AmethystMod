@@ -35,6 +35,11 @@ public class LanguageUtil {
         if (langTooltip == null || langTooltip.equals(langName))
             return;
 
+        formatLocalizedTooltip(langTooltip, list);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void formatLocalizedTooltip(String langTooltip, List list) {
         for (String descriptionLine : langTooltip.split(";")) {
             if (descriptionLine != null && descriptionLine.length() > 0)
                 list.add(descriptionLine);
