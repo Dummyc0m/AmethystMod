@@ -1,5 +1,6 @@
 package com.dummyc0m.forgemod.amethyst.common.world.generator;
 
+import com.dummyc0m.forgemod.amethyst.api.IWorldGen;
 import com.google.common.base.Predicate;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -7,14 +8,14 @@ import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLLog;
 
 import java.util.Random;
 
 /**
  * Created by Dummyc0m on 12/5/15.
  */
-public class WorldGenMinable {
-    private final IBlockState blockState;
+public abstract class WorldGenMinable implements IWorldGen {
     private final int veinSize;
     private final int branchSize;
     private final int subBranchSize;
@@ -26,8 +27,6 @@ public class WorldGenMinable {
     private final Predicate replaceBlock;
 
     /**
-     *
-     * @param blockState the ore
      * @param veinSize obvious
      * @param triesPerChunk obvious
      * @param maxY maximum
@@ -36,8 +35,7 @@ public class WorldGenMinable {
      * @param density default 1, higher value result in more scattered ores
      * @param replaceBlock the predicate indicating the block to be replaced
      */
-    public WorldGenMinable(IBlockState blockState, int veinSize, int triesPerChunk, int maxY, int minY, int rarity, int density, Block replaceBlock) {
-        this.blockState = blockState;
+    public WorldGenMinable(int veinSize, int triesPerChunk, int maxY, int minY, int rarity, int density, Block replaceBlock) {
         this.veinSize = veinSize;
         this.branchSize = veinSize / 30 + 1;
         this.subBranchSize = branchSize / 5 + 1;
@@ -49,10 +47,19 @@ public class WorldGenMinable {
         this.replaceBlock = BlockHelper.forBlock(replaceBlock);
     }
 
-    public WorldGenMinable(IBlockState blockState, int veinSize, int triesPerChunk, int maxY, int minY, int rarity, int density) {
-        this(blockState, veinSize, triesPerChunk, maxY, minY, rarity, density, Blocks.stone);
+    /**
+     * @param veinSize obvious
+     * @param triesPerChunk obvious
+     * @param maxY maximum
+     * @param minY minimum
+     * @param rarity determines whether it spawns in a certain chunk, 1 would be always true, higher the rarer
+     * @param density default 1, higher value result in more scattered ores
+     */
+    public WorldGenMinable(int veinSize, int triesPerChunk, int maxY, int minY, int rarity, int density) {
+        this( veinSize, triesPerChunk, maxY, minY, rarity, density, Blocks.stone);
     }
 
+    @Override
     public void generate(World world, Random random, int xChunk, int zChunk) {
         if (rarity < 2 || random.nextInt(rarity) == 0) {
             for(int i = 0; i < triesPerChunk; i++) {
@@ -60,14 +67,15 @@ public class WorldGenMinable {
                 int startY = minY + random.nextInt(maxY - minY);
                 int startZ = zChunk * 16 + random.nextInt(16);
                 generateVein(world, random, startX, startY, startZ);
-                System.out.println("Generating Orevein" + startX + ", " + startY + ", " + startZ);
+                //TODO
+                FMLLog.info("generating vein at: " + startX + " " + startY + " " + startZ);
             }
         }
     }
 
     //blame mojang for unchecked
     @SuppressWarnings("unchecked")
-    public void generateVein(World world, Random random, int posX, int posY, int posZ) {
+    private void generateVein(World world, Random random, int posX, int posY, int posZ) {
         int veinLeft = veinSize;
         int branchLeft;
         int subBranchLeft;
@@ -114,9 +122,8 @@ public class WorldGenMinable {
                         subBranchZ = manipulatePosition(dirChangeSubBranch, 2, subBranchDirZ, subBranchZ, random);
 
                         BlockPos blockPos = new BlockPos(subBranchX, subBranchY, subBranchZ);
-                        if (world.getBlockState(blockPos).getBlock().isReplaceableOreGen(world, blockPos, replaceBlock))
-                        {
-                            world.setBlockState(blockPos, blockState, 2);
+                        if (world.getBlockState(blockPos).getBlock().isReplaceableOreGen(world, blockPos, replaceBlock)) {
+                            world.setBlockState(blockPos, getBlockState(random), 2);
                         }
                         subBranchLeft--;
                     }
@@ -124,9 +131,8 @@ public class WorldGenMinable {
                 }
 
                 BlockPos blockPos = new BlockPos(branchX, branchY, branchZ);
-                if (world.getBlockState(blockPos).getBlock().isReplaceableOreGen(world, blockPos, replaceBlock))
-                {
-                    world.setBlockState(blockPos, blockState, 2);
+                if (world.getBlockState(blockPos).getBlock().isReplaceableOreGen(world, blockPos, replaceBlock)) {
+                    world.setBlockState(blockPos, getBlockState(random), 2);
                 }
                 branchLeft--;
             }
@@ -136,6 +142,8 @@ public class WorldGenMinable {
             posZ += random.nextInt(3) - 1;
         }
     }
+
+    public abstract IBlockState getBlockState(Random random);
 
     private int manipulatePosition(int changeDisc, int value, boolean dir, int pos, Random random) {
         if(changeDisc != value) {

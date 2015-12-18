@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Set;
  */
 public class ItemTool extends ItemBase {
     public ItemTool() {
-        super("tool", 1, "screwdriver");
+        super("screwdriver", 1);
     }
 
     @Override

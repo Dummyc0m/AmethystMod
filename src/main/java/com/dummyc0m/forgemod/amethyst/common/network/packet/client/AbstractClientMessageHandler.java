@@ -1,10 +1,10 @@
-package com.dummyc0m.forgemod.amethyst.network.packet.client;
+package com.dummyc0m.forgemod.amethyst.common.network.packet.client;
 
 /**
  * Created by Dummyc0m on 11/26/15.
  */
 
-import com.dummyc0m.forgemod.amethyst.network.packet.AbstractMessageHandler;
+import com.dummyc0m.forgemod.amethyst.common.network.packet.AbstractMessageHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;

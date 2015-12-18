@@ -1,6 +1,7 @@
 package com.dummyc0m.forgemod.amethyst.common.item;
 
 import com.dummyc0m.forgemod.amethyst.AmethystMod;
+import com.dummyc0m.forgemod.amethyst.api.IToolTip;
 import com.dummyc0m.forgemod.amethyst.client.util.LanguageUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by Dummyc0m on 11/28/15.
  * Item base with tooltips
  */
-public class ItemTooltipBase extends ItemBase {
+public class ItemTooltipBase extends ItemBase implements IToolTip {
     public ItemTooltipBase(String name, int stackSize, String... subNames) {
         super(name, stackSize, subNames);
     }
@@ -26,6 +27,7 @@ public class ItemTooltipBase extends ItemBase {
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     @SuppressWarnings("unchecked")
     public void formatTooltip(ItemStack stack, List tooltip) {
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
@@ -35,4 +37,6 @@ public class ItemTooltipBase extends ItemBase {
             tooltip.add(LanguageUtil.getLocalization("lang." + AmethystMod.MODID + ".showTooltip"));
         }
     }
+
+
 }

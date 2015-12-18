@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -32,8 +33,10 @@ public class ClientProxy extends CommonProxy {
     private void registerRenderers() {
         itemModelMesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
         registerItem(AMContent.itemMaterial);
+        registerItem(AMContent.itemFragment);
         registerItem(AMContent.itemTool);
         registerSimpleBlock(AMContent.blockAmethystOre);
+        registerSimpleBlock(AMContent.blockAmethystPoorOre);
     }
 
     private void registerItem(ItemBase item) {
@@ -53,7 +56,7 @@ public class ClientProxy extends CommonProxy {
 
     private void registerSimpleBlock(BlockSimple block) {
         ModelResourceLocation res = new ModelResourceLocation(AmethystMod.MODID + ":" + block.getBlockName(), "inventory");
-        itemModelMesher.register(GameRegistry.findItem(AmethystMod.MODID, AMContent.blockAmethystOre.getBlockName()), 0, res);
+        itemModelMesher.register(GameRegistry.findItem(AmethystMod.MODID, block.getBlockName()), 0, res);
         FMLLog.log(Level.INFO, "Registered ItemBlock Model for " + AmethystMod.MODID + ":" + block.getBlockName());
     }
 

@@ -6,9 +6,10 @@ itemGroup.amethyst=Amethyst
 
 item.amethyst.material.amethyst.name=Amethyst
 item.amethyst.fragment.amethyst.name=Amethyst Fragment
-item.amethyst.tool.screwdriver.name=Screwdriver
+item.amethyst.screwdriver.name=Screwdriver
 
 item.amethyst.showTooltip=Press SHIFT to show more info
 
 tile.amethyst.oreAmethyst.name=Amethyst Ore
+tile.amethyst.oreAmethystPoor.name=Poor Amethyst Ore
 
