@@ -6,7 +6,6 @@ import com.google.common.collect.ImmutableSet;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**

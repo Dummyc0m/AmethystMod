@@ -5,7 +5,6 @@ import com.dummyc0m.forgemod.amethyst.common.item.ItemBlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.Random;
 

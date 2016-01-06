@@ -11,13 +11,15 @@ import net.minecraft.tileentity.TileEntity;
  */
 public abstract class TileEntityBase extends TileEntity {
     @Override
-    public void readFromNBT(NBTTagCompound compound) {
+    public final void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
+        readCustomNBT(compound);
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound compound) {
+    public final void writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
+        writeCustomNBT(compound);
     }
 
     public abstract void readCustomNBT(NBTTagCompound compound);

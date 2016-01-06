@@ -3,8 +3,6 @@ package com.dummyc0m.forgemod.amethyst.common.world.generator;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.FMLLog;
 import scala.actors.threadpool.Arrays;
 
 import java.util.List;

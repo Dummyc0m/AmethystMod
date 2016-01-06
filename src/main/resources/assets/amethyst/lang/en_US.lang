@@ -5,11 +5,25 @@ language.code=en_US
 itemGroup.amethyst=Amethyst
 
 item.amethyst.material.amethyst.name=Amethyst
-item.amethyst.fragment.amethyst.name=Amethyst Fragment
+item.amethyst.fragment.amethystFragment.name=Amethyst Fragment
 item.amethyst.screwdriver.name=Screwdriver
 
 item.amethyst.showTooltip=Press SHIFT to show more info
 
+tile.amethyst.prism.name=Amethyst Prism
+tile.amethyst.acStorage.name=Charge Capacitor
+tile.amethyst.generator.thermal.name=Thermal Generator //heat, cooling hot object, dissipates heat
+tile.amethyst.generator.radiant.name=Radiant Generator //light
+tile.amethyst.generator.mechanical.name=Mechanical Generator //wind,water,cranking,engine
+tile.amethyst.generator.electrical.name=Electrical Generator //eu rf
+
+tile.amethyst.engine.stirling.name=Stirling Engine
+tile.amethyst.engine.steam.name=Steam Engine
+tile.amethyst.engine.piston.name=Gasoline Engine
+tile.amethyst.engine.diesel.name=Diesel Engine
+
+
+
+
 tile.amethyst.oreAmethyst.name=Amethyst Ore
 tile.amethyst.oreAmethystPoor.name=Poor Amethyst Ore
-

@@ -157,10 +157,8 @@ Portal to warped world
 
 
 Thermal Energy
-Temperature Increment
-Temperature Decrement
 
-Electric Energy
+Electrical Energy //storage
 
 Radiant Energy
 
@@ -168,10 +166,10 @@ Mechanical Energy
 Kinetic Energy
 Potential Energy
 Gravitational Potential Energy
-Elastic Potential Energy
-Electric Potential Energy
+Elastic Potential Energy //wont really use
+Electric Potential Energy //wont really use
 
-Chemical Energy
+Chemical Energy //storage
 
 Nuclear Energy
 

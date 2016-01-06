@@ -5,12 +5,11 @@ import com.dummyc0m.forgemod.amethyst.common.AMContent;
 import com.dummyc0m.forgemod.amethyst.common.CommonProxy;
 import com.dummyc0m.forgemod.amethyst.common.block.BlockSimple;
 import com.dummyc0m.forgemod.amethyst.common.item.ItemBase;
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -45,6 +44,7 @@ public class ClientProxy extends CommonProxy {
             for(int i = 0; i < subNames.length; i++) {
                 ModelResourceLocation res = new ModelResourceLocation(AmethystMod.MODID + ":" + subNames[i], "inventory");
                 itemModelMesher.register(item, i, res);
+                ModelBakery.addVariantName(item, AmethystMod.MODID + ":" + subNames[i]);
                 FMLLog.log(Level.INFO, "Registered Item Model for " + AmethystMod.MODID + ":" + subNames[i]);
             }
         } else {
@@ -58,11 +58,6 @@ public class ClientProxy extends CommonProxy {
         ModelResourceLocation res = new ModelResourceLocation(AmethystMod.MODID + ":" + block.getBlockName(), "inventory");
         itemModelMesher.register(GameRegistry.findItem(AmethystMod.MODID, block.getBlockName()), 0, res);
         FMLLog.log(Level.INFO, "Registered ItemBlock Model for " + AmethystMod.MODID + ":" + block.getBlockName());
-    }
-
-    private void registerBlock(Block block) {
-
-
     }
 
     @Override
