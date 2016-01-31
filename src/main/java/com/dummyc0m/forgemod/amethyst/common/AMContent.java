@@ -1,9 +1,16 @@
 package com.dummyc0m.forgemod.amethyst.common;
 
+import com.dummyc0m.forgemod.amethyst.common.block.BlockBase;
 import com.dummyc0m.forgemod.amethyst.common.block.BlockOre;
 import com.dummyc0m.forgemod.amethyst.common.block.BlockSimple;
+import com.dummyc0m.forgemod.amethyst.common.block.single.TestConnector;
+import com.dummyc0m.forgemod.amethyst.common.block.single.TestGenerator;
+import com.dummyc0m.forgemod.amethyst.common.block.single.TestStorage;
 import com.dummyc0m.forgemod.amethyst.common.item.ItemBase;
 import com.dummyc0m.forgemod.amethyst.common.item.ItemTool;
+import com.dummyc0m.forgemod.amethyst.common.tile.TileTestConnector;
+import com.dummyc0m.forgemod.amethyst.common.tile.TileTestGenerator;
+import com.dummyc0m.forgemod.amethyst.common.tile.TileTestStorage;
 import com.dummyc0m.forgemod.amethyst.common.world.AMWorldGen;
 import com.dummyc0m.forgemod.amethyst.common.world.generator.WorldGenMultiOre;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -21,6 +28,12 @@ public class AMContent {
     public static ItemBase itemFragment;
     public static ItemBase itemTool;
 
+    //AC Net
+    public static BlockBase producerConnector;
+    public static BlockBase consumerConnector;
+    public static BlockBase testGenerator;
+    public static BlockBase testStorage;
+
     public static AMWorldGen worldGen;
 
     public static final String TOOL_SCREWDRIVER = "AMETHYST_SCREWDRIVER";
@@ -35,6 +48,16 @@ public class AMContent {
         //blocks
         blockAmethystOre = new BlockOre("oreAmethyst", 3, itemMaterial, 0, 1, 2);
         blockAmethystPoorOre = new BlockOre("oreAmethystPoor", 2, itemFragment, 0, 2, 3);
+
+        producerConnector = new TestConnector.TestProducerConnector();
+        consumerConnector = new TestConnector.TestConsumerConnector();
+        testGenerator = new TestGenerator("testGenerator");
+        testStorage = new TestStorage("testStorage");
+
+        GameRegistry.registerTileEntity(TileTestConnector.TileProducerConnector.class, "tileProducerConnector");
+        GameRegistry.registerTileEntity(TileTestConnector.TileConsumerConnector.class, "tileConsumerConnector");
+        GameRegistry.registerTileEntity(TileTestGenerator.class, "tileTestGenerator");
+        GameRegistry.registerTileEntity(TileTestStorage.class, "tileTestStorage");
 
         worldGen = new AMWorldGen();
         worldGen.worldGens.add(new WorldGenMultiOre(60, 2, 60, 20, 300, 3, new WorldGenMultiOre.WeightedBlock(blockAmethystOre.getDefaultState(), 1), new WorldGenMultiOre.WeightedBlock(blockAmethystPoorOre.getDefaultState(), 9)));

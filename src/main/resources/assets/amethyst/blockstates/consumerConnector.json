@@ -1,0 +1,15 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "amethyst:connectorDemo.png:": "amethyst:blocks/connectorDemo"
+    },
+    "model": "amethyst:connectorDemo.b3d",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": {
+      "model": "amethyst:connectorDemo"
+    }
+  }
+}

@@ -1,15 +1,12 @@
 package com.dummyc0m.forgemod.amethyst.common.tile;
 
-import com.dummyc0m.forgemod.amethyst.api.network.INetworkDevice;
+import com.dummyc0m.forgemod.amethyst.api.energy.INetworkDevice;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
 
 /**
  * Created by Dummyc0m on 1/3/16.
  */
 public class TileTestGenerator extends TileEntityBase implements INetworkDevice {
-
-
     @Override
     public void readCustomNBT(NBTTagCompound compound) {
 
@@ -21,17 +18,17 @@ public class TileTestGenerator extends TileEntityBase implements INetworkDevice 
     }
 
     @Override
-    public void connectTo(EnumFacing facing) {
-
+    public int getConsumption() {
+        return 0;
     }
 
     @Override
     public int produceCharge() {
-        return 0;
+        System.out.println("Producing charge of " + 80);
+        return 80;
     }
 
     @Override
-    public int consumeCharge(int charge) {
-        return 0;
+    public void consumeCharge(int charge) {
     }
 }

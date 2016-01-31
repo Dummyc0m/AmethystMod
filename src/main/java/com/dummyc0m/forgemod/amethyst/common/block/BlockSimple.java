@@ -21,8 +21,10 @@ public class BlockSimple extends Block implements IBlockBase {
 
     public BlockSimple(Material materialIn, String name, Class<? extends ItemBlock> itemBlock, String... subNames) {
         super(materialIn);
-        this.setUnlocalizedName(AmethystMod.MODID + "." + name);
-        this.setCreativeTab(AmethystMod.creativeTab);
+        setUnlocalizedName(AmethystMod.MODID + "." + name);
+        setCreativeTab(AmethystMod.creativeTab);
+        setHardness(3f);
+        setResistance(5f);
         blockName = name;
         this.subNames = subNames != null && subNames.length > 0 ? subNames : null;
         if(itemBlock == null) {

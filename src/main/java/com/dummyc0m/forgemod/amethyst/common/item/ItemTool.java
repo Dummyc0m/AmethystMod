@@ -19,7 +19,7 @@ public class ItemTool extends ItemBase {
 
     @Override
     public float getDigSpeed(ItemStack itemstack, IBlockState state) {
-        return ToolUtil.isToolEffective(itemstack, state) ? 6.0F : 1.0F;
+        return ToolUtil.isToolEffective(itemstack, state) ? 10.0F : 1.0F;
     }
 
     @Override

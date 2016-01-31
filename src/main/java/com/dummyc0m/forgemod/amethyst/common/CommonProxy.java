@@ -1,6 +1,7 @@
 package com.dummyc0m.forgemod.amethyst.common;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -23,6 +24,10 @@ public class CommonProxy {
         AMRecipes.registerCraftingRecipes();
         AMRecipes.registerFurnaceRecipes();
         AMRecipes.registerCustomRecipes();
+
+        AMEvents events = new AMEvents();
+        MinecraftForge.EVENT_BUS.register(events);
+        //FMLCommonHandler.instance().bus().register(events);
     }
 
     public void postInit(FMLPostInitializationEvent event) {
