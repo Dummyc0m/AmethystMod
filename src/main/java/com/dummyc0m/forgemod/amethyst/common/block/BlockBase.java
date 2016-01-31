@@ -5,12 +5,10 @@ import com.dummyc0m.forgemod.amethyst.api.IBlockBase;
 import com.dummyc0m.forgemod.amethyst.api.IScrewdriverHarvestable;
 import com.dummyc0m.forgemod.amethyst.common.AMContent;
 import com.dummyc0m.forgemod.amethyst.common.item.ItemBlockBase;
-import com.dummyc0m.forgemod.amethyst.common.util.ToolUtil;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MovingObjectPosition;
@@ -30,8 +28,11 @@ public abstract class BlockBase extends BlockContainer implements IBlockBase, IS
 
     public BlockBase(Material materialIn, String name, Class<? extends ItemBlockBase> itemBlock, String... subNames) {
         super(materialIn);
-        this.setUnlocalizedName(AmethystMod.MODID + "." + name);
-        this.setCreativeTab(AmethystMod.creativeTab);
+        setUnlocalizedName(AmethystMod.MODID + "." + name);
+        setCreativeTab(AmethystMod.creativeTab);
+        setHarvestLevel("pickaxe", 3);
+        setHardness(1.5f);
+        setResistance(3f);
         blockName = name;
         this.subNames = subNames != null && subNames.length > 0 ? subNames : null;
         GameRegistry.registerBlock(this, itemBlock, name);
@@ -69,12 +70,7 @@ public abstract class BlockBase extends BlockContainer implements IBlockBase, IS
 
     @Override
     public boolean isToolEffective(String type, IBlockState state) {
-        return (canScrewdriverHarvest() && AMContent.TOOL_SCREWDRIVER.equals(type)) || getHarvestTool(state).equals(type);
-    }
-
-    @Override
-    public boolean canHarvestBlock(IBlockAccess world, BlockPos pos, EntityPlayer player) {
-        return this.getMaterial().isToolNotRequired() || ToolUtil.isToolEffective(player.getHeldItem(), world.getBlockState(pos));
+        return (canScrewdriverHarvest() && AMContent.TOOL_SCREWDRIVER.equals(type)) || super.isToolEffective(type, state);
     }
 
     @Override

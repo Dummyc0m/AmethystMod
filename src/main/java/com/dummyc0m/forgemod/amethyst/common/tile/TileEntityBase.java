@@ -1,9 +1,7 @@
 package com.dummyc0m.forgemod.amethyst.common.tile;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 /**
@@ -26,13 +24,29 @@ public abstract class TileEntityBase extends TileEntity {
 
     public abstract void writeCustomNBT(NBTTagCompound compound);
 
-    @Override
-    public Packet getDescriptionPacket() {
-        return super.getDescriptionPacket();
+    public void onLoad() {
+
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-        super.onDataPacket(net, pkt);
+    public void onChunkUnload() {
+        onUnload();
     }
+
+    public void onUnload() {
+
+    }
+
+    public IBlockState getBlockState() {
+        return worldObj.getBlockState(pos);
+    }
+//    @Override
+//    public Packet getDescriptionPacket() {
+//        return super.getDescriptionPacket();
+//    }
+//
+//    @Override
+//    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+//        super.onDataPacket(net, pkt);
+//    }
 }

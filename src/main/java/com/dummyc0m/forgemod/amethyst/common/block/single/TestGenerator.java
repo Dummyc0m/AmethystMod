@@ -11,8 +11,8 @@ import net.minecraft.world.World;
  * Created by Dummyc0m on 1/3/16.
  */
 public class TestGenerator extends BlockBase {
-    public TestGenerator(Material materialIn, String name, Class<? extends ItemBlockBase> itemBlock, String... subNames) {
-        super(materialIn, name, itemBlock, subNames);
+    public TestGenerator(String name) {
+        super(Material.rock, name, ItemBlockBase.class);
     }
 
     @Override

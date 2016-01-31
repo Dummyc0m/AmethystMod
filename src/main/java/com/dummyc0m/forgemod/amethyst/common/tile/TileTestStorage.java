@@ -1,35 +1,38 @@
 package com.dummyc0m.forgemod.amethyst.common.tile;
 
-import com.dummyc0m.forgemod.amethyst.api.network.INetworkDevice;
+import com.dummyc0m.forgemod.amethyst.api.energy.INetworkDevice;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
 
 /**
  * Created by Dummyc0m on 1/3/16.
  */
 public class TileTestStorage extends TileEntityBase implements INetworkDevice {
+    private int chargeStored;
+
     @Override
     public void readCustomNBT(NBTTagCompound compound) {
-
+        chargeStored = compound.getInteger("chargeStored");
     }
 
     @Override
     public void writeCustomNBT(NBTTagCompound compound) {
-
+        compound.setInteger("chargeStored", chargeStored);
     }
 
     @Override
-    public void connectTo(EnumFacing facing) {
-
+    public int getConsumption() {
+        return 80;
     }
 
     @Override
     public int produceCharge() {
-        return 0;
+        chargeStored -= 80;
+        return 80;
     }
 
     @Override
-    public int consumeCharge(int charge) {
-        return 0;
+    public void consumeCharge(int charge) {
+        chargeStored += charge;
+        System.out.println("Storing charge of " + charge + ", total charge is " + chargeStored);
     }
 }
