@@ -4,11 +4,13 @@ language.code=en_US
 
 itemGroup.amethyst=Amethyst
 
+desc.amethyst.networkIdDisplay=Current Network Id: %s
+
+lang.amethyst.showTooltip=Press SHIFT to show more info
+
 item.amethyst.material.amethyst.name=Amethyst
 item.amethyst.fragment.amethystFragment.name=Amethyst Fragment
 item.amethyst.screwdriver.name=Screwdriver
-
-item.amethyst.showTooltip=Press SHIFT to show more info
 
 tile.amethyst.prism.name=Amethyst Prism
 tile.amethyst.acStorage.name=Charge Capacitor

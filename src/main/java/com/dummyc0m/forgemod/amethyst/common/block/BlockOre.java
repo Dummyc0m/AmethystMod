@@ -1,7 +1,8 @@
 package com.dummyc0m.forgemod.amethyst.common.block;
 
-import com.dummyc0m.forgemod.amethyst.api.IItemBase;
-import com.dummyc0m.forgemod.amethyst.common.item.ItemBlockBase;
+import com.dummyc0m.forgemod.amethyst.core.block.BlockSimple;
+import com.dummyc0m.forgemod.amethyst.core.item.IItemBase;
+import com.dummyc0m.forgemod.amethyst.core.item.ItemBlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;

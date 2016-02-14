@@ -1,5 +1,17 @@
 {
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {},
+    "model": "amethyst:oreAmethystPoor"
+  },
   "variants": {
-    "normal": { "model": "amethyst:oreAmethystPoor" }
+    "normal": [
+      {}
+    ],
+    "inventory": [
+      {
+        "transform": "forge:default-block"
+      }
+    ]
   }
 }

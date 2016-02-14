@@ -2,6 +2,7 @@ package com.dummyc0m.forgemod.amethyst;
 
 import com.dummyc0m.forgemod.amethyst.common.AMContent;
 import com.dummyc0m.forgemod.amethyst.common.CommonProxy;
+import com.dummyc0m.forgemod.amethyst.core.IAMMod;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,14 +18,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  */
 
 @Mod(modid = AmethystMod.MODID, name = AmethystMod.MODNAME, version = AmethystMod.VERSION)
-public class AmethystMod {
+public class AmethystMod implements IAMMod {
     public static final String MODID = "amethyst";
     public static final String MODNAME = "Amethyst";
     public static final String VERSION = "0.0";
     public static final double VERSION_D = Double.parseDouble(VERSION);
 
     @Mod.Instance(MODID)
-    public static AmethystMod instance = new AmethystMod();
+    public static AmethystMod instance;
 
     @SidedProxy(clientSide = "com.dummyc0m.forgemod.amethyst.client.ClientProxy", serverSide = "com.dummyc0m.forgemod.amethyst.common.CommonProxy")
     public static CommonProxy proxy;
@@ -62,5 +63,15 @@ public class AmethystMod {
     public void postInit(FMLPostInitializationEvent event) {
         //Handle interaction with other mods, complete your setup based on this.
         proxy.postInit(event);
+    }
+
+    @Override
+    public String getModId() {
+        return MODID;
+    }
+
+    @Override
+    public CreativeTabs getCreativeTab() {
+        return creativeTab;
     }
 }

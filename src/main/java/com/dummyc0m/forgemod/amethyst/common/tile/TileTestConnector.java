@@ -1,18 +1,20 @@
 package com.dummyc0m.forgemod.amethyst.common.tile;
 
-import com.dummyc0m.forgemod.amethyst.api.energy.INetworkConnector;
-import com.dummyc0m.forgemod.amethyst.api.energy.INetworkDevice;
 import com.dummyc0m.forgemod.amethyst.common.block.single.TestConnector;
-import com.dummyc0m.forgemod.amethyst.common.energy.NetManager;
+import com.dummyc0m.forgemod.amethyst.core.energy.INetworkConnector;
+import com.dummyc0m.forgemod.amethyst.core.energy.INetworkDevice;
+import com.dummyc0m.forgemod.amethyst.core.energy.NetManager;
+import com.dummyc0m.forgemod.amethyst.core.tile.TileEntityBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
+import net.minecraftforge.fml.common.FMLLog;
 
 /**
  * Created by Dummyc0m on 1/3/16.
  */
 public abstract class TileTestConnector extends TileEntityBase implements INetworkConnector {
-    private String networkId = "5996a18c-7127-43f9-9400-44d5fa5d7f84";
+    private String networkId;
 
     @Override
     public void readCustomNBT(NBTTagCompound compound) {
@@ -60,8 +62,9 @@ public abstract class TileTestConnector extends TileEntityBase implements INetwo
 
         @Override
         public void onLoad() {
-            if (getNetworkId() != null && !worldObj.isRemote) {
-                NetManager.INSTANCE.addToNetwork(this);
+            if (getNetworkId() != null && !worldObj.isRemote && !NetManager.INSTANCE.addToNetwork(this)) {
+                setNetworkId(null);
+                FMLLog.warning("Connector at %s was unable to add to its network", this.pos);
             }
         }
 
@@ -77,8 +80,9 @@ public abstract class TileTestConnector extends TileEntityBase implements INetwo
 
         @Override
         public void onLoad() {
-            if (getNetworkId() != null && !worldObj.isRemote) {
-                NetManager.INSTANCE.addToNetwork(this);
+            if (getNetworkId() != null && !worldObj.isRemote && !NetManager.INSTANCE.addToNetwork(this)) {
+                setNetworkId(null);
+                FMLLog.warning("Connector at %s was unable to add to its network", this.pos);
             }
         }
 

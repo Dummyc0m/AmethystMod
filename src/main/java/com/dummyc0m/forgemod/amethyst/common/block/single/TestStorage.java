@@ -1,8 +1,8 @@
 package com.dummyc0m.forgemod.amethyst.common.block.single;
 
-import com.dummyc0m.forgemod.amethyst.common.block.BlockBase;
-import com.dummyc0m.forgemod.amethyst.common.item.ItemBlockBase;
 import com.dummyc0m.forgemod.amethyst.common.tile.TileTestStorage;
+import com.dummyc0m.forgemod.amethyst.core.block.BlockBase;
+import com.dummyc0m.forgemod.amethyst.core.item.ItemBlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

@@ -1,6 +1,7 @@
 package com.dummyc0m.forgemod.amethyst.common.tile;
 
-import com.dummyc0m.forgemod.amethyst.api.energy.INetworkDevice;
+import com.dummyc0m.forgemod.amethyst.core.energy.INetworkDevice;
+import com.dummyc0m.forgemod.amethyst.core.tile.TileEntityBase;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
@@ -24,7 +25,8 @@ public class TileTestGenerator extends TileEntityBase implements INetworkDevice 
 
     @Override
     public int produceCharge() {
-        System.out.println("Producing charge of " + 80);
+        System.out.println("Generator Producing charge of " + 80);
+        markDirty();
         return 80;
     }
 

@@ -1,6 +1,7 @@
 package com.dummyc0m.forgemod.amethyst.common.tile;
 
-import com.dummyc0m.forgemod.amethyst.api.energy.INetworkDevice;
+import com.dummyc0m.forgemod.amethyst.core.energy.INetworkDevice;
+import com.dummyc0m.forgemod.amethyst.core.tile.TileEntityBase;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
@@ -27,6 +28,8 @@ public class TileTestStorage extends TileEntityBase implements INetworkDevice {
     @Override
     public int produceCharge() {
         chargeStored -= 80;
+        System.out.println("Storage Producing charge of " + 80 + ", total charge is " + chargeStored);
+        markDirty();
         return 80;
     }
 
@@ -34,5 +37,6 @@ public class TileTestStorage extends TileEntityBase implements INetworkDevice {
     public void consumeCharge(int charge) {
         chargeStored += charge;
         System.out.println("Storing charge of " + charge + ", total charge is " + chargeStored);
+        markDirty();
     }
 }

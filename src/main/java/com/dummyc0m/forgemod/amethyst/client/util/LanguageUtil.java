@@ -1,5 +1,6 @@
 package com.dummyc0m.forgemod.amethyst.client.util;
 
+import com.dummyc0m.forgemod.amethyst.AmethystMod;
 import net.minecraft.util.StatCollector;
 
 import java.util.HashMap;
@@ -10,13 +11,15 @@ import java.util.Map;
  * Created by Dummyc0m on 11/29/15.
  */
 public class LanguageUtil {
+    public static final String DESC_PREFIX = "desc." + AmethystMod.MODID + ".";
+
     private static Map<String, String> localizedBuffer = new HashMap<>();
 
-    public static String getLocalization(String key) {
-        return getLocalization(key, true);
+    public static String getLocalizedString(String key) {
+        return getLocalizedString(key, true);
     }
 
-    private static String getLocalization(String key, boolean fallback) {
+    public static String getLocalizedString(String key, boolean fallback) {
         String localization = localizedBuffer.get(key);
         if (localization != null) {
             return localization;
@@ -29,9 +32,14 @@ public class LanguageUtil {
         return localization;
     }
 
+    public static String getLocalizedStringFormatted(String key, Object... objects) {
+        String ret = getLocalizedString(key);
+        return String.format(ret, objects);
+    }
+
     @SuppressWarnings("unchecked")
     public static void formatTooltip(String langName, List list) {
-        String langTooltip = getLocalization(langName);
+        String langTooltip = getLocalizedString(langName);
         if (langTooltip == null || langTooltip.equals(langName))
             return;
 

@@ -1,6 +1,6 @@
 package com.dummyc0m.forgemod.amethyst.common.world;
 
-import com.dummyc0m.forgemod.amethyst.api.IWorldGen;
+import com.dummyc0m.forgemod.amethyst.core.IWorldGen;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.fml.common.IWorldGenerator;

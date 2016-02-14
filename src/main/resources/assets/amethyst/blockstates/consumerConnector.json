@@ -2,15 +2,11 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      //"#texture": "forgedebugmodelloaderregistry:texture",
-      "#chest": "entity/chest/normal"
+      "connectorDemo": "amethyst:blocks/connectorDemo"
     },
-    "model": "amethyst:chest.b3d",
+    "model": "amethyst:connectorDemo.obj",
     "custom": {
-      "mesh": [
-        "Base",
-        "Lid"
-      ]
+      "flip-v": true
     }
   },
   "variants": {
@@ -19,47 +15,28 @@
     ],
     "inventory": [
       {
-        "transform": {
-          "rotation": {
-            "y": 180
-          },
-          "thirdperson": {
-            "rotation": [
-              {
-                "z": 170
-              },
-              {
-                "y": -45
-              },
-              {
-                "z": 20
-              }
-            ],
-            "translation": [
-              0,
-              0.09375,
-              -0.171875
-            ],
-            "scale": 0.375
-          }
-        }
+        "transform": "forge:default-block"
       }
     ],
     "facing": {
-      "down": {
-        "x": 90
-      },
       "up": {
-        "x": 270
+      },
+      "down": {
+        "x": 180
       },
       "north": {
+        "x": 90
+      },
+      "south": {
+        "x": 90,
         "y": 180
       },
-      "south": {},
-      "west": {
+      "east": {
+        "x": 90,
         "y": 90
       },
-      "east": {
+      "west": {
+        "x": 90,
         "y": 270
       }
     }
